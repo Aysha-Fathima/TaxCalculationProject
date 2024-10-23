@@ -1,0 +1,81 @@
+<p>taxcalculation works!</p>
+
+<div>
+    <h2>Income Tax Assessment</h2>
+    <form #formsdata="ngForm" (ngSubmit)="restUserData.calculate(formsdata)">
+      <mat-form-field appearance="fill">
+        <mat-label>Assessment Year</mat-label>
+        <input matInput type="number" ngModel name="assessmentYear" >
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Income from Salary</mat-label>
+        <input matInput type="number" ngModel name="incomeSalary" >
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Income from Property</mat-label>
+        <input matInput type="number" ngModel name="incomeFromProperty" >
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Municipal Tax Paid</mat-label>
+        <input matInput type="number" ngModel name="municipalTaxPaid" >
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Short Term Capital Gains</mat-label>
+        <input matInput type="number" ngModel name="shortTermCapitalGains" >
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Long Term Capital Gains</mat-label>
+        <input matInput type="number" ngModel name="longTermCapitalGains" >
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Other Bank Interest</mat-label>
+        <input matInput type="number" ngModel name="OtherBankInterest" >
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Other Win/Lottery</mat-label>
+        <input matInput type="number" ngModel name="OtherWinLottery" >
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Total Deduction</mat-label>
+        <input matInput type="number" ngModel name="totalDeduction" >
+      </mat-form-field>
+      <br />
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Advance Tax Paid</mat-label>
+        <input matInput type="number"  ngModel name="advanceTaxPaid">
+      </mat-form-field>
+      <br />
+  
+      
+  
+      <button mat-raised-button type="submit" color="primary">Submit</button>
+    </form>
+
+    <div *ngIf="restUserData.showGrossTotalIncome">
+        <mat-form-field appearance="fill">
+            <mat-label>Gross Total Income (auto-calculated)</mat-label>
+            <input matInput type="number" [value]="restUserData.grossTotalIncome" readonly>
+          </mat-form-field>
+          <br />
+    </div>
+
+    <button type="button" (click)="restUserData.generatePDF()">Generate PDF</button>
+  </div>
+  

@@ -1,0 +1,17 @@
+<h1>Login Form</h1>
+<form #loginForm="ngForm" (ngSubmit)="restUserData.login(loginForm)">
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" id="email" name="email" ngModel required>
+  </mat-form-field>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" id="password" name="password" ngModel required>
+  </mat-form-field>
+  <br>
+
+  <button mat-raised-button type="submit" color="primary">Login</button>
+</form>
